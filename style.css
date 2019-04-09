@@ -1,0 +1,66 @@
+/* reset */
+
+html {
+	box-sizing: border-box;
+} /* check ths property */
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	display: flex;
+	height: 100vh; /*100% of the view height */
+	justify-content: center;
+	align-items: center;
+	background: #224e6c;
+}
+
+#board {
+	width: 640px;
+	height: 640px;
+	display: flex;
+	flex-wrap: wrap;
+	border: 1px solid black;
+}
+
+.card {
+	width: 23%;
+	height: 31%;
+	margin: 1%;
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	background: #139ba9;
+	border-radius: 5px;
+
+	transform: scale(1);
+
+	transform-style: preserve-3d; /* makes an image of the card on the back and you can start rotating X and Y axis  */
+	transition: transform .5s;
+}
+
+.card:active {
+	transform: scale(0.95);
+	transition: transform 0.2s;
+}
+
+.front, 
+.back {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	backface-visibility: hidden;
+}
+
+.card.flip {
+	transform: rotateY(180deg);
+}
+
+.front {
+	transform: rotateY(180deg);
+}
+
+
